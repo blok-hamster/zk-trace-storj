@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import ipfsRouter from "./routes/ipfs.js";
+import storageRouter from "./routes/storage.js";
 import zkRouter from "./routes/zkProof.js";
 const app = express();
 app.use(cors());
@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(`/ipfs`, ipfsRouter);
+app.use(`/storage`, storageRouter);
 app.use(`/zk`, zkRouter);
 
 app.get("/", (req, res) => {
